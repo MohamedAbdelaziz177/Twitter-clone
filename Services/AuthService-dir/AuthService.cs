@@ -1,4 +1,4 @@
-﻿using MailKit;
+﻿
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Twitter.DTOs;
 using Twitter.Model;
+using Twitter.Services.MailService_dir;
 using Twitter.Unit_of_work;
 
 namespace Twitter.Services.AuthService_dir
@@ -135,9 +136,9 @@ namespace Twitter.Services.AuthService_dir
             if (user == null) return false;
         
             var ConfirmationCode = await userManager.GenerateEmailConfirmationTokenAsync(user);
-        
-            bool sent = await mailService
-                .SendMailAsync(email, "Email Verfication", $"<h2>{ConfirmationCode}</h2>");
+
+
+            bool sent = await mailService.SendMailAsync(email, "Confirmation code", $"<h2>{ConfirmationCode}</h2>");
         
             return sent;
         
@@ -191,7 +192,7 @@ namespace Twitter.Services.AuthService_dir
         {
 
 
-            AppUser appUser = await userManager.FindByIdAsync(userId.ToString());
+            ApplicationUser appUser = await userManager.FindByIdAsync(userId.ToString());
 
             var claims = new List<Claim>();
 
@@ -233,11 +234,11 @@ namespace Twitter.Services.AuthService_dir
             refreshToken.isRevoked = false;
 
             refreshToken.ExpiryDate = DateTime.Now.AddDays(30);
-            refreshToken.AppUserID = userId;
+            refreshToken.AppUserId = userId;
 
             refreshToken.Token = Guid.NewGuid().ToString() + "_" + Guid.NewGuid().ToString();
 
-            await unitOfWork.RefreshTokensRepo.insertAsync(refreshToken);
+            await unitOfWork.RefreshTokenRepo.InsertAsync(refreshToken);
 
             return refreshToken;
         }
@@ -246,7 +247,7 @@ namespace Twitter.Services.AuthService_dir
         {
 
             var refToken = await
-                unitOfWork.RefreshTokensRepo.GetValidRefreshTokenAsync(refreshToken, userId);
+                unitOfWork.RefreshTokenRepo.GetValidRefreshTokenAsync(refreshToken, userId);
 
             if (refToken == null)
                 return new TokenResponseDto
@@ -256,7 +257,7 @@ namespace Twitter.Services.AuthService_dir
 
             if (refToken.ExpiryDate > DateTime.Now.AddDays(1))
             {
-                var accessTok = await GenerateAccessTokenAsync(refToken.AppUserID);
+                var accessTok = await GenerateAccessTokenAsync(refToken.AppUserId);
                 refToken.ExpiryDate = DateTime.Now.AddDays(15);
 
                 return new TokenResponseDto
@@ -270,8 +271,36 @@ namespace Twitter.Services.AuthService_dir
 
             await unitOfWork.CompleteAsync();
 
-            return await GenerateTokensAsync(refToken.AppUserID);
+            return await GenerateTokensAsync(refToken.AppUserId);
 
+        }
+
+        // 3 - Forget And Reset Password
+        public async Task<bool> ForgetPasswordAsync(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+
+            if (user == null) return false;
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+
+            bool check = await mailService.SendMailAsync(email, "Reset Password Token", token);
+
+            return check;
+        }
+
+
+        // - Needs to be Refactored -_-
+        public async Task<bool> ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
+        {
+            var user = await userManager.FindByEmailAsync(resetPasswordDto.email);
+
+            if (user == null) return false;
+
+            var res = await userManager.ResetPasswordAsync(user, resetPasswordDto.token,
+                                                                 resetPasswordDto.Password);
+
+            return res.Succeeded;
         }
 
 
