@@ -34,8 +34,4 @@
 	
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\RefreshTokensRepo\" />
-  </ItemGroup>
-
 </Project>
