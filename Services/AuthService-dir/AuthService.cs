@@ -185,6 +185,7 @@ namespace Twitter.Services.AuthService_dir
                 AccessToken = accessToken,
                 RefreshToken = refreshToken.Token
             };
+
             return tokenResponse;
         }
 
@@ -243,11 +244,11 @@ namespace Twitter.Services.AuthService_dir
             return refreshToken;
         }
 
-        public async Task<TokenResponseDto> RefreshTokenAsync(string refreshToken, string userId)
+        public async Task<TokenResponseDto> RefreshTokenAsync(string refreshToken)
         {
 
             var refToken = await
-                unitOfWork.RefreshTokenRepo.GetValidRefreshTokenAsync(refreshToken, userId);
+                unitOfWork.RefreshTokenRepo.GetValidRefreshTokenAsync(refreshToken);
 
             if (refToken == null)
                 return new TokenResponseDto

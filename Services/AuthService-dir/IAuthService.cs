@@ -8,7 +8,7 @@ namespace Twitter.Services.AuthService_dir
 
         Task<AuthResponseDto> LoginAsync(LoginDto loginDto);
 
-        Task<TokenResponseDto> RefreshTokenAsync(string refreshToken, string userId);
+        Task<TokenResponseDto> RefreshTokenAsync(string refreshToken);
 
         Task<bool> ConfirmEmailAsync(string email, string code);
 

@@ -9,13 +9,11 @@ namespace Twitter.Repository.RefreshTokensRepo
     {
         public RefreshTokenRepo(AppDbContext context) : base(context) { }
 
-        public async Task<RefreshToken?> GetValidRefreshTokenAsync(string refreshToken, string userId)
+        public async Task<RefreshToken?> GetValidRefreshTokenAsync(string refreshToken)
         {
-            var refTok = await dbSet.Include(rt => rt.AppUser)
-                              .FirstOrDefaultAsync(x => x.Token == refreshToken
-                                                                     && x.ExpiryDate > DateTime.Now
-                                                                     && !x.isRevoked
-                                                                     && x.AppUserId == userId);
+            var refTok = await dbSet.FirstOrDefaultAsync(r => r.Token == refreshToken 
+            && !r.isRevoked
+            && r.ExpiryDate > DateTime.Now);
 
             return refTok;
         }
