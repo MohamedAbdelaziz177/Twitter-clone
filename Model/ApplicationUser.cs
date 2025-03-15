@@ -8,7 +8,7 @@ namespace Twitter.Model
 
         public string LastName { get; set; } = string.Empty;
 
-
+        public List<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 
 
     }

@@ -8,6 +8,8 @@
 
   <ItemGroup>
 	  
+      <PackageReference Include="MailKit" Version="4.11.0" />
+	  
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
 
 	
@@ -30,6 +32,10 @@
    
 		  
 	
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\RefreshTokensRepo\" />
   </ItemGroup>
 
 </Project>
