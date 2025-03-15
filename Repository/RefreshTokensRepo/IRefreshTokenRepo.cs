@@ -5,6 +5,6 @@ namespace Twitter.Repository.RefreshTokensRepo
 {
     public interface IRefreshTokenRepo : IGenericRepo<RefreshToken>
     {
-      
+        Task<RefreshToken?> GetValidRefreshTokenAsync(string refreshToken, string userId);
     }
 }

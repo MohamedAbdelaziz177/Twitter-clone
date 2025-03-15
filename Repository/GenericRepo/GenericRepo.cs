@@ -7,7 +7,7 @@ namespace Twitter.Repository.GenericRepo
     public class GenericRepo<T> : IGenericRepo<T> where T : class
     {
         private readonly AppDbContext con;
-        private readonly DbSet<T> dbSet;
+        protected readonly DbSet<T> dbSet;
 
         public GenericRepo(AppDbContext con)
         {
