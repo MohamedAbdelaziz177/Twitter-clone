@@ -10,6 +10,10 @@ namespace Twitter.Model
 
         public string ImgUrl { get; set; } = string.Empty;
 
+        public int LikesCount { get; set; }
+
+        public int RepliesCount { get; set; }
+
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
