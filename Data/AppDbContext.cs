@@ -11,6 +11,8 @@ namespace Twitter.Data
 
         public DbSet<Post> Posts { get; set; }
 
+        public DbSet<Profile> Profiles { get; set; }
+
        //public DbSet<Follow> Follows { get; set; }
        //
        //public DbSet<Comment> Comments { get; set; }
