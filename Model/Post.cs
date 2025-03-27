@@ -23,6 +23,9 @@ namespace Twitter.Model
 
         public List<Comment> comments { get; set; } = new List<Comment>();
 
+        public List<Like> likes { get; set; } = new List<Like>();
+
+
 
     }
 }

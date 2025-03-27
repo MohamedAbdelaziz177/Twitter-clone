@@ -14,6 +14,8 @@ namespace Twitter.Model
 
         public List<Comment> comments { get; set; } = new List<Comment>();
 
+        public List<Like> likes { get; set; } = new List<Like> ();
+
         //public List<Follow> follows { get; set; } = new List<Follow> ();
 
 

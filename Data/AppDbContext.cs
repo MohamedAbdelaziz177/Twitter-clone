@@ -23,7 +23,7 @@ namespace Twitter.Data
                 .HasOne(c => c.ApplicationUser)
                 .WithMany(u => u.comments)
                 .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.NoAction); // Set Null instead of Cascade
+                .OnDelete(DeleteBehavior.NoAction); 
 
             modelBuilder.Entity<Follow>()
                 .HasOne(f => f.FollowedUser)
@@ -37,6 +37,19 @@ namespace Twitter.Data
                 .HasForeignKey(f => f.FollowerUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Like>()
+                .HasOne(l => l.Post)
+                .WithMany(p => p.likes)
+                .HasForeignKey(l => l.PostId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Like>()
+                .HasOne(l => l.User)
+                .WithMany(u => u.likes)
+                .HasForeignKey(l => l.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
         }
 
 
@@ -47,7 +60,7 @@ namespace Twitter.Data
         public DbSet<Follow> Follows { get; set; }
        
         public DbSet<Comment> Comments { get; set; }
-       //
-       //public DbSet<Like> Likes { get; set; }
+       
+        public DbSet<Like> Likes { get; set; }
     }
 }
