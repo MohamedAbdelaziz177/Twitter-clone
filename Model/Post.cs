@@ -19,7 +19,9 @@ namespace Twitter.Model
         [ForeignKey(nameof(ApplicationUser))]
         public string UserId { get; set; }
 
-        public ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
+
+        public List<Comment> comments { get; set; } = new List<Comment>();
 
 
     }

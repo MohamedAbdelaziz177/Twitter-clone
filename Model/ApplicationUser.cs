@@ -10,6 +10,10 @@ namespace Twitter.Model
 
         public List<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 
+        public List<Post> posts { get; set; } = new List<Post>();
+
+        public List<Comment> comments { get; set; } = new List<Comment>();
+
 
     }
 }
