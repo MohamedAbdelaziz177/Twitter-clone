@@ -252,7 +252,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Twitter.Model.Follow", b =>
@@ -283,7 +283,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("FollowerUserId");
 
-                    b.ToTable("Follows");
+                    b.ToTable("Follows", (string)null);
                 });
 
             modelBuilder.Entity("Twitter.Model.Like", b =>
@@ -307,7 +307,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Likes");
+                    b.ToTable("Likes", (string)null);
                 });
 
             modelBuilder.Entity("Twitter.Model.Post", b =>
@@ -343,7 +343,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Twitter.Model.Profile", b =>
@@ -374,7 +374,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Profiles");
+                    b.ToTable("Profiles", (string)null);
                 });
 
             modelBuilder.Entity("Twitter.Model.RefreshToken", b =>
@@ -406,7 +406,7 @@ namespace Twitter.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("RefreshToken");
+                    b.ToTable("RefreshToken", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
