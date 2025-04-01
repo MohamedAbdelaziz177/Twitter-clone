@@ -1,6 +1,9 @@
-﻿namespace Twitter.Repository.PostRepo
+﻿using Twitter.Model;
+using Twitter.Repository.GenericRepo;
+
+namespace Twitter.Repository.PostRepo
 {
-    public interface IPostRepo
+    public interface IPostRepo : IGenericRepo<Post>
     {
     }
 }

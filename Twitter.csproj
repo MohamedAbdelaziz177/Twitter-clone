@@ -34,13 +34,4 @@
 	
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\FollowRepo\" />
-    <Folder Include="Repository\CommentRepo\" />
-    <Folder Include="Repository\BookmarkRepo\" />
-    <Folder Include="Repository\LikeRepo\" />
-    <Folder Include="Repository\ProfileRepo\" />
-    <Folder Include="Repository\UserRepo\" />
-  </ItemGroup>
-
 </Project>

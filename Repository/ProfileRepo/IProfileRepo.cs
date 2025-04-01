@@ -1,6 +1,9 @@
-﻿namespace Twitter.Repository.ProfileRepo
+﻿using Twitter.Model;
+using Twitter.Repository.GenericRepo;
+
+namespace Twitter.Repository.ProfileRepo
 {
-    public interface IProfileRepo
+    public interface IProfileRepo : IGenericRepo<Profile>
     {
     }
 }

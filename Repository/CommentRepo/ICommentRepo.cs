@@ -1,6 +1,9 @@
-﻿namespace Twitter.Repository.CommentRepo
+﻿using Twitter.Model;
+using Twitter.Repository.GenericRepo;
+
+namespace Twitter.Repository.CommentRepo
 {
-    public interface ICommentRepo
+    public interface ICommentRepo : IGenericRepo<Comment>
     {
     }
 }
