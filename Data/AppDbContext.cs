@@ -49,6 +49,16 @@ namespace Twitter.Data
                 .HasForeignKey(l => l.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Bookmark>()
+                .HasOne(b => b.User)
+                .WithMany(u => u.bookmarks)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Bookmark>()
+                .HasOne(b => b.Post)
+                .WithMany(u => u.bookmarks)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
         }
 
@@ -62,5 +72,7 @@ namespace Twitter.Data
         public DbSet<Comment> Comments { get; set; }
        
         public DbSet<Like> Likes { get; set; }
+
+        public DbSet<Bookmark> Bookmarks { get; set; }
     }
 }

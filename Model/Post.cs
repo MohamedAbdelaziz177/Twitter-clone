@@ -25,6 +25,8 @@ namespace Twitter.Model
 
         public List<Like> likes { get; set; } = new List<Like>();
 
+        public List<Bookmark> bookmarks { get; set; } = new List<Bookmark>();
+
 
 
     }
