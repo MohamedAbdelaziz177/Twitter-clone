@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Twitter.DTOs
+namespace Twitter.DTOs.AuthDtos
 {
     public class ResetPasswordDto
     {

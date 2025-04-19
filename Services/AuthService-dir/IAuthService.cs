@@ -1,4 +1,4 @@
-﻿using Twitter.DTOs;
+﻿using Twitter.DTOs.AuthDtos;
 
 namespace Twitter.Services.AuthService_dir
 {

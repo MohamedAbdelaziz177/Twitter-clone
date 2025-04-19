@@ -4,7 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Twitter.DTOs;
+using Twitter.DTOs.AuthDtos;
 using Twitter.Model;
 using Twitter.Services.MailService_dir;
 using Twitter.Unit_of_work;

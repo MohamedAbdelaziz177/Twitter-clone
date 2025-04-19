@@ -1,4 +1,4 @@
-﻿namespace Twitter.DTOs
+﻿namespace Twitter.DTOs.AuthDtos
 {
     public class ConfirmEmailDto
     {

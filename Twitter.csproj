@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <Folder Include="DTOs\AuthDtos\" />
+    <Folder Include="DTOs\ProfileDtos\" />
   </ItemGroup>
 
 </Project>
