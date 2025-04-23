@@ -8,6 +8,10 @@
 
   <ItemGroup>
 	  
+      <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.3" />
+	  
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.6.3" />
+	  
       <PackageReference Include="MailKit" Version="4.11.0" />
 	  
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
@@ -32,11 +36,6 @@
    
 		  
 	
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DTOs\AuthDtos\" />
-    <Folder Include="DTOs\ProfileDtos\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,10 @@
-﻿namespace Twitter.DTOs.CommentDtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Twitter.DTOs.CommentDtos
 {
-    public class CreateCommentDto
+    public class CreateUpdateCommentDto
     {
+        [Required]
+        public string content { get; set; } = string.Empty;
     }
 }

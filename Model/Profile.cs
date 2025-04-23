@@ -13,7 +13,7 @@ namespace Twitter.Model
         public string PhotoUrl { get; set; } = "";
 
         [ForeignKey(nameof(ApplicationUser))]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         public ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
     }

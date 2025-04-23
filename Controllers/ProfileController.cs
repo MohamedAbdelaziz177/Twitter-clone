@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Twitter.DTOs.ProfileDtos;
 
 namespace Twitter.Controllers
 {
@@ -7,7 +8,7 @@ namespace Twitter.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
-        [HttpGet("get-by-id")]
+        [HttpGet("get-by-id/{id:int}")]
         public Task<IActionResult> GetById(int id) 
         {
             return null;
@@ -20,7 +21,7 @@ namespace Twitter.Controllers
         }
 
         [HttpPut("update-my-profile")]
-        public Task<IActionResult> UpdateMyProfile()
+        public Task<IActionResult> UpdateMyProfile(UpdateProfileDto updateProfileDto)
         {
             return null;
         }

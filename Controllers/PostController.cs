@@ -18,7 +18,7 @@ namespace Twitter.Controllers
             this.postService = postService;
         }
 
-        [HttpGet("get-by-id")]
+        [HttpGet("get-by-id/{id:int}")]
         [AllowAnonymous]
         public Task<IActionResult> GetPostById(int id)
         {
@@ -33,28 +33,36 @@ namespace Twitter.Controllers
 
 
         [HttpPost("add")]
-        public Task<IActionResult> AddPost(PostDto post)
+        public Task<IActionResult> AddPost(CreateUpdatePostDto post)
         {
             return null;
         }
 
-        [HttpPut("update")]
-        public Task<IActionResult> UpdatePost(int id, PostDto post) {
+        [HttpPut("update/{id:int}")]
+        public Task<IActionResult> UpdatePost([FromRoute] int id, CreateUpdatePostDto post) {
 
             return null;
         }
 
-        public Task<IActionResult> LikePost(int postId)
+        [HttpPost("like")]
+        public Task<IActionResult> LikePost([FromQuery] int postId)
         {
             return null;
         }
 
-        public Task<IActionResult> UnlikePost(int postId) { 
+        [HttpDelete("unlike")]
+        public Task<IActionResult> UnlikePost([FromQuery] int postId) { 
 
             return null;
         }
 
-        [HttpPut("delete")]
+        [HttpPost("bookmark")]
+        public Task<IActionResult> BookmarkPost([FromQuery] int postId) 
+        {
+            return null;
+        }
+
+        [HttpDelete("delete/{id:int}")]
         public Task<IActionResult> DeletePost(int id)
         {
             return null;

@@ -1,6 +1,8 @@
-﻿namespace Twitter.DTOs.BookmarkDtos
+﻿using Twitter.DTOs.PostDtos;
+
+namespace Twitter.DTOs.BookmarkDtos
 {
-    public class BookMarkDtos
-    {
+    public class BookmarkDto : PostDto
+    { 
     }
 }

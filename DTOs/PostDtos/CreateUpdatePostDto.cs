@@ -1,8 +1,8 @@
 ﻿namespace Twitter.DTOs.PostDtos
 {
-    public class UpdatePostDto
+    public class CreateUpdatePostDto
     {
         public string Description { get; set; } = "";
-        public string ImgUrl { get; set; } = "";
+        public IFormFile Img { get; set; } = default!;
     }
 }

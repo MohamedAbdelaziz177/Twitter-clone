@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using Twitter.DTOs;
+using Twitter.DTOs.AuthDtos;
 using Twitter.Services.AuthService_dir;
 
 namespace Twitter.Controllers

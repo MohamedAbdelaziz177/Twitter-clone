@@ -7,13 +7,13 @@ namespace Twitter.Model
         public int Id { get; set; }
 
         [ForeignKey(nameof(FollowedUser))]
-        public string FollowedUserId {  get; set; }
+        public string FollowedUserId {  get; set; } = string.Empty;
 
         public ApplicationUser FollowedUser {  get; set; } = new ApplicationUser();
 
 
         [ForeignKey(nameof(FollowerUser))]
-        public string FollowerUserId {  get; set; }
+        public string FollowerUserId {  get; set; } = string.Empty;
 
         public ApplicationUser FollowerUser { get; set; } = new ApplicationUser();
 

@@ -8,7 +8,7 @@ namespace Twitter.Model
         public int Id { get; set; }
 
         [ForeignKey(nameof(User))]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
         public ApplicationUser User { get; set; } = new ApplicationUser();
 
         [ForeignKey(nameof(Post))]
