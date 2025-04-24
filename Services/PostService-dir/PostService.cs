@@ -44,8 +44,8 @@ namespace Twitter.Services.PostService_dir
             post.ImgUrl = await imgService.SaveImageAndGetUrl(postDto.Img);
 
 
-            try { await unitOfWork.PostRepo.InsertAsync(post); }
-            catch (Exception ex) { throw new IOException("Post Not saved - try again"); }
+            await unitOfWork.PostRepo.InsertAsync(post); 
+       
 
             return post.toDto();
         }
@@ -66,16 +66,14 @@ namespace Twitter.Services.PostService_dir
             if(post.ImgUrl != null)
             post.ImgUrl = await imgService.SaveImageAndGetUrl(postDto.Img);
 
-            try { await unitOfWork.PostRepo.UpdateAsync(post); }
-            catch (Exception e) { throw new IOException("Post Not saved - try again"); }
+            await unitOfWork.PostRepo.UpdateAsync(post); 
 
             return await GetById(id);
         }
 
         public async Task Delete(int id, string userId)
         {
-            try { await unitOfWork.PostRepo.DeleteAsync(id); }
-            catch (Exception ex) { throw new IOException("Post Not deleted - try again"); }
+            await unitOfWork.PostRepo.DeleteAsync(id); 
         }
 
     }
