@@ -5,5 +5,6 @@ namespace Twitter.Repository.PostRepo
 {
     public interface IPostRepo : IGenericRepo<Post>
     {
+        Task<Post?> GetPostWithCommentsAndUser(int id);
     }
 }
