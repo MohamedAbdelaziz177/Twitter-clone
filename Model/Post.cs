@@ -12,13 +12,13 @@ namespace Twitter.Model
 
         public string ImgUrl { get; set; } = string.Empty;
 
-        public int LikesCount { get; set; }
+        public int LikesCount { get; set; } = 0;
 
-        public int RepliesCount { get; set; }
+        public int RepliesCount { get; set; } = 0;
 
-        public int BookmarksCount { get; set; }
+        public int BookmarksCount { get; set; } = 0;
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [ForeignKey(nameof(ApplicationUser))]
         public string UserId { get; set; } = string.Empty;
