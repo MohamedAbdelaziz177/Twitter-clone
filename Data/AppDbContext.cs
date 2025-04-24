@@ -23,7 +23,9 @@ namespace Twitter.Data
                 .HasOne(c => c.ApplicationUser)
                 .WithMany(u => u.comments)
                 .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.NoAction); 
+                .OnDelete(DeleteBehavior.NoAction);
+
+        
 
             modelBuilder.Entity<Follow>()
                 .HasOne(f => f.FollowedUser)
@@ -58,6 +60,8 @@ namespace Twitter.Data
                 .HasOne(b => b.Post)
                 .WithMany(u => u.bookmarks)
                 .OnDelete(DeleteBehavior.Restrict);
+
+         
 
 
         }
