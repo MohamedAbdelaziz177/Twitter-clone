@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Twitter.Data;
+using Twitter.Exceptions;
 using Twitter.Model;
 using Twitter.Validators;
 namespace Twitter
@@ -18,7 +19,9 @@ namespace Twitter
 
             // Add services to the container.
 
-            builder.Services.AddControllers().AddFluentValidation(fv =>
+            builder.Services.AddControllers(options =>
+            options.Filters.Add<GlobalExceptionFilter>()
+            ).AddFluentValidation(fv =>
             {
                 fv.RegisterValidatorsFromAssemblyContaining<PostDtoValidator>();
             });
