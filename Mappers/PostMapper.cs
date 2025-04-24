@@ -26,9 +26,9 @@ namespace Twitter.Mappers
             return dto;
         }
 
-        public static Post fromDto(this CreateUpdatePostDto postDto) 
+        public static Post fromDto(this Post post ,CreateUpdatePostDto postDto) 
         {
-            Post post = new Post();
+           
 
             post.content = postDto.Description;
             post.ImgUrl = "";
