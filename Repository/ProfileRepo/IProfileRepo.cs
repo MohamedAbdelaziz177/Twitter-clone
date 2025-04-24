@@ -5,5 +5,6 @@ namespace Twitter.Repository.ProfileRepo
 {
     public interface IProfileRepo : IGenericRepo<Profile>
     {
+        Task<Profile?> GetByUserIdAsync(string userId);
     }
 }
