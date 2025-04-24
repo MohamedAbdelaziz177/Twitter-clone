@@ -4,6 +4,8 @@ namespace Twitter.Model
 {
     public class Post
     {
+        
+
         public int Id { get; set; }
 
         public string content { get; set; } = string.Empty;
@@ -13,6 +15,8 @@ namespace Twitter.Model
         public int LikesCount { get; set; }
 
         public int RepliesCount { get; set; }
+
+        public int BookmarksCount { get; set; }
 
         public DateTime CreatedAt { get; set; }
 

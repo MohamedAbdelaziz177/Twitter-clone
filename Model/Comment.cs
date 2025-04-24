@@ -12,8 +12,10 @@ namespace Twitter.Model
         public int PostId {  get; set; }
         public Post Post { get; set; } = new Post();
 
+        public DateTime CreatedAt { get; set; }
+
         [ForeignKey(nameof(ApplicationUser))]
-        public string? UserId {  get; set; }
+        public string UserId { get; set; } = "";
         public ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
     }
 }
