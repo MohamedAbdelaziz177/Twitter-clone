@@ -15,6 +15,6 @@ namespace Twitter.Services.CommentService_dir
 
         Task<CommentDto> UpdateComment(int id, CreateUpdateCommentDto commentDto, string userId);
 
-        Task DeleteComment(int id);
+        Task DeleteComment(int id, string userId);
     }
 }

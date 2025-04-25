@@ -73,6 +73,14 @@ namespace Twitter.Services.PostService_dir
 
         public async Task Delete(int id, string userId)
         {
+            var post = await unitOfWork.PostRepo.GetByIdAsync(id);
+
+            if (post == null)
+                throw new NotFoundException("Post not found");
+
+            if (post.UserId != userId)
+                throw new UnauthorizedAccessException("U r not authorized to delete this post");
+
             await unitOfWork.PostRepo.DeleteAsync(id); 
         }
 

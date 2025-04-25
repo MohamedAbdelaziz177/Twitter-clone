@@ -74,7 +74,6 @@ namespace Twitter.Services.CommentService_dir
             return comment.toDto();
         }
 
-
         public async Task<CommentDto> UpdateComment(int id, CreateUpdateCommentDto commentDto, string userId)
         {
             Comment? comment = await unitOfWork.CommentRepo.GetByIdAsync(id);
@@ -92,8 +91,16 @@ namespace Twitter.Services.CommentService_dir
             return comment.toDto();
         }
 
-        public async Task DeleteComment(int id) 
+        public async Task DeleteComment(int id, string userId) 
         {
+            Comment? comment = await unitOfWork.CommentRepo.GetByIdAsync(id);
+
+            if (comment == null)
+                throw new NotFoundException("Comment not found");
+
+            if(comment.UserId != userId)
+                throw new UnauthorizedAccessException($"U r not authorized to delete comment");
+
             await unitOfWork.CommentRepo.DeleteAsync(id);
         }
     }
