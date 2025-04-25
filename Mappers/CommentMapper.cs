@@ -19,11 +19,9 @@ namespace Twitter.Mappers
             return dto;  
         }
 
-        public static Comment fromDto(this CreateUpdateCommentDto dto)
+        public static Comment fromDto(this Comment comment, CreateUpdateCommentDto dto)
         {
-            Comment comment = new Comment();
             comment.Content = dto.content;
-
             return comment;
         }
     }
