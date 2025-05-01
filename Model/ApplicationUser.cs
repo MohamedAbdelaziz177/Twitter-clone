@@ -21,5 +21,7 @@ namespace Twitter.Model
 
         public List<Bookmark> bookmarks { get; set; } = new();
 
+        public Profile profile { get; set; } = new();
+
     }
 }
