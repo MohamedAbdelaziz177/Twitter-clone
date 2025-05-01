@@ -13,6 +13,7 @@ namespace Twitter.Mappers
             dto.Bio = profile.Bio;
             dto.Name = profile.Name;
             dto.ImgUrl = profile.PhotoUrl;
+            dto.userId = profile.UserId;
 
             foreach (Post post in profile.ApplicationUser.posts)
                 dto.PostDtos.Add(post.toDto());

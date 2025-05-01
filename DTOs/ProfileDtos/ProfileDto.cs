@@ -10,6 +10,8 @@ namespace Twitter.DTOs.ProfileDtos
 
         public string ImgUrl { get; set; } = string.Empty;
 
+        public string userId {  get; set; } = string.Empty;
+
         public List<PostDto> PostDtos { get; set; } = new();
     }
 }
