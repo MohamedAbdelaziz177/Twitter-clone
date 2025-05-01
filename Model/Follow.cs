@@ -17,7 +17,7 @@ namespace Twitter.Model
 
         public ApplicationUser FollowerUser { get; set; } = new ApplicationUser();
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public bool IsDeleted { get; set; } = false;
     }
