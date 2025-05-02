@@ -15,7 +15,7 @@ namespace Twitter.Model
         public int PostId { get; set; }
         public Post Post { get; set; } = new Post();
 
-        public DateTime? BookmarkedAt { get; set; } = DateTime.Now;
+        public DateTime BookmarkedAt { get; set; } = DateTime.Now;
 
         
     }
