@@ -1,4 +1,5 @@
-﻿using Twitter.DTOs.PostDtos;
+﻿using Twitter.DTOs.LikeDtos;
+using Twitter.DTOs.PostDtos;
 using Twitter.Exceptions;
 using Twitter.Mappers;
 using Twitter.Model;
@@ -82,6 +83,45 @@ namespace Twitter.Services.PostService_dir
                 throw new UnauthorizedAccessException("U r not authorized to delete this post");
 
             await unitOfWork.PostRepo.DeleteAsync(id); 
+        }
+
+        public async Task LikePost(string userId, int postId)
+        {
+
+            Like like = new();
+
+            like.UserId = userId;
+            like.PostId = postId;
+            
+            await unitOfWork.LikeRepo.InsertAsync(like);
+        }
+
+        public async Task UnlikePost(string userId, int postId)
+        {
+            Like? like = await unitOfWork.LikeRepo.GetByUserAndPost(userId, postId);
+
+            if (like == null)
+                throw new NotFoundException("You didn't like this post");
+
+            await unitOfWork.LikeRepo.DeleteAsync(like.Id);
+        }
+
+        public async Task<bool> IsLikedByUser(string userId, int postId)
+        {
+            return await 
+                unitOfWork.LikeRepo.IsLikedByUser(userId, postId);
+        }
+
+        public async Task<List<LikeDto>> GetPostLikes(int postId)
+        {
+            List<Like>? likes = await unitOfWork.LikeRepo.GetByPostId(postId);
+
+            if (likes == null)
+                return new List<LikeDto>();
+
+            var likesDto = likes.Select(x => x.toDto()).ToList();
+
+            return likesDto;
         }
 
     }
