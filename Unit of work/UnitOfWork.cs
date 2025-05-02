@@ -2,6 +2,7 @@
 using System.Data;
 using Twitter.Data;
 using Twitter.Model;
+using Twitter.Repository.BlockRepo;
 using Twitter.Repository.BookmarkRepo;
 using Twitter.Repository.CommentRepo;
 using Twitter.Repository.FollowRepo;
@@ -32,6 +33,8 @@ namespace Twitter.Unit_of_work
 
         public IUserRepo UserRepo { get; private set; }
 
+        public IBlockRepo BlockRepo { get; private set; }
+
         public UnitOfWork(AppDbContext context) {
 
             this.context = context;
@@ -44,6 +47,7 @@ namespace Twitter.Unit_of_work
             FollowRepo = new FollowRepo(context);
             profileRepo = new ProfileRepo(context);
             UserRepo = new UserRepo(context);
+            BlockRepo = new BlockRepo(context);
 
         }
        

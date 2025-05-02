@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using System.Data;
 using Twitter.Model;
+using Twitter.Repository.BlockRepo;
 using Twitter.Repository.BookmarkRepo;
 using Twitter.Repository.CommentRepo;
 using Twitter.Repository.FollowRepo;
@@ -30,6 +31,8 @@ namespace Twitter.Unit_of_work
         IProfileRepo profileRepo { get; }
 
         IUserRepo UserRepo { get; }
+
+        IBlockRepo BlockRepo { get; }
 
 
         Task<int> CompleteAsync();
