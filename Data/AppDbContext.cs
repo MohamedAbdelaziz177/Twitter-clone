@@ -61,8 +61,18 @@ namespace Twitter.Data
                 .WithMany(u => u.bookmarks)
                 .OnDelete(DeleteBehavior.Restrict);
 
-         
 
+            modelBuilder.Entity<Block>()
+                .HasOne(b => b.Blocker)
+                .WithMany()
+                .HasForeignKey(b => b.BlockerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Block>()
+                .HasOne(b => b.Blocked)
+                .WithMany()
+                .HasForeignKey(b => b.BlockedId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
 
@@ -78,5 +88,7 @@ namespace Twitter.Data
         public DbSet<Like> Likes { get; set; }
 
         public DbSet<Bookmark> Bookmarks { get; set; }
+
+        public DbSet<Block> blocks { get; set; }
     }
 }
