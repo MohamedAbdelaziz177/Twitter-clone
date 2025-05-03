@@ -4,7 +4,7 @@ using Twitter.Unit_of_work;
 
 namespace Twitter.Services.BlockService_dir
 {
-    public class BlockService
+    public class BlockService : IBlockService
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -18,6 +18,11 @@ namespace Twitter.Services.BlockService_dir
 
             block.BlockerId = BlockerId;
             block.BlockedId = BlockedId;
+
+            var Blocked = await unitOfWork.UserRepo.GetAsync(u => u.Id == BlockerId);
+
+            if (Blocked == null)
+                throw new NotFoundException("The blocked user is not found");
 
             await unitOfWork.BlockRepo.InsertAsync(block);
         }
