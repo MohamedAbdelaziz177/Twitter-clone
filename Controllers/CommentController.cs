@@ -1,48 +1,86 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.DTOs.CommentDtos;
+using Twitter.Model;
+using Twitter.Services.CommentService_dir;
 
 namespace Twitter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    [Authorize]
+    public class CommentController : BasePlusUserController
     {
-        [HttpGet("get-by-id/{id:int}")]
-        public IActionResult GetById(int id)
+        private readonly ICommentService commentService;
+
+        public CommentController(ICommentService commentService)
         {
-            return null;
+            this.commentService = commentService;
+        }
+
+
+        [HttpGet("get-by-id/{id:int}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetById(int id)
+        { 
+            CommentDto comment = await commentService.GetCommentById(id);
+
+            return Ok(comment);
         }
 
         [HttpGet("get-by-postId")]
-        public IActionResult GetByPostId([FromQuery] int postId)
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByPostId([FromQuery] int postId)
         {
-            return null;
+            List<CommentDto> comments = await commentService.GetCommentsByPostId(postId);
+
+            return Ok(comments);
         }
 
         [HttpGet("get-by-userId")]
-        public IActionResult GetByUserId(string userId)
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByUserId(string userId)
         {
-            return null;
+            List<CommentDto> comments = await commentService.GetCommentsByUserId(userId);
+
+            return Ok(comments);
         }
 
 
         [HttpPost("add")]
-        public IActionResult AddComment(CreateUpdateCommentDto comment)
+
+        public async Task<IActionResult> AddComment(int postId, CreateUpdateCommentDto comment)
         {
-            return null;
+            if(ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            CommentDto commDto = await commentService.AddNewComment(postId, userId, comment);
+
+            return CreatedAtAction("GetById", new
+            {
+                id = commDto.Id,
+                commDto
+            });
         }
 
         [HttpPost("update/{id:int}")]
-        public IActionResult EditComment([FromRoute] int id, CreateUpdateCommentDto comment) 
+        public async Task<IActionResult> EditComment([FromRoute] int id, CreateUpdateCommentDto comment) 
         {
-            return null;
+            if (ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            CommentDto commDto = await commentService.UpdateComment(id, comment, userId);
+
+            return Ok(commDto);
         }
 
         [HttpDelete("delete/{id:int}")]
-        public IActionResult DeleteComment(int id)
+        public async Task<IActionResult> DeleteComment(int id)
         {
-            return null;
+            await commentService.DeleteComment(id, userId);
+
+            return NoContent();
         }
     }
 }

@@ -1,31 +1,51 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Twitter.DTOs.BookmarkDtos;
+using Twitter.Services.BookmarkService_dir;
 
 namespace Twitter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookmarkController : ControllerBase
+    [Authorize]
+    public class BookmarkController : BasePlusUserController
     {
+        private readonly IBookmarkService bookmarkService;
 
-        public BookmarkController() { }
-
-        [HttpGet("get-by-id/{id:int}")]
-        public Task<IActionResult> GetById(int id)
+        public BookmarkController(IBookmarkService bookmarkService)
         {
-            return null;
+            this.bookmarkService = bookmarkService;
         }
 
+      // [HttpGet("get-by-id/{id:int}")]
+      // public async Task<IActionResult> GetById(int id)
+      // {
+      //     return null;
+      // }
+
         [HttpGet("get-all")]
-        public Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return null;
+            List<BookmarkDto> bookmarkDtos = await bookmarkService.GetMyBookmarks(userId);
+
+            return Ok(bookmarkDtos);
+        }
+
+        [HttpPost("add-to-bookmarks")]
+        public async Task<IActionResult> AddBookmark([FromQuery] int postId)
+        {
+            await bookmarkService.AddToBookmarks(userId, postId);
+
+            return Ok("Added to bookmarks successfully");
         }
 
         [HttpDelete("delete")]
-        public Task<IActionResult> DeleteBookmark(int id)
+        public async Task<IActionResult> DeleteBookmark(int id)
         {
-            return null;
+            await bookmarkService.RemoveFromBookmarks(userId, id);
+
+            return NoContent();
         }
 
         // Get Users bookmarked the post by post id -> for admins

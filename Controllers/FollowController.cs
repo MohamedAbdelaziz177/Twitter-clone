@@ -1,45 +1,63 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Twitter.DTOs.FollowDtos;
+using Twitter.Services.FollowService_dir;
 
 namespace Twitter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class FollowController : ControllerBase
+    public class FollowController : BasePlusUserController
     {
+        private readonly IFollowService followService;
+
+        public FollowController(IFollowService followService)
+        {
+            this.followService = followService;
+        }
 
         [AllowAnonymous]
         [HttpGet("get-followers")]
-        public Task<IActionResult> GetFollowers([FromQuery] string userId)
+        public async Task<IActionResult> GetFollowers([FromQuery] string userId)
         {
-            return null;
+            var lst = await followService.GetUsersFollowers(userId);
+
+            return Ok(lst);
         }
 
         [AllowAnonymous]
         [HttpGet("get-followings")]
-        public Task<IActionResult> GetFollowings([FromQuery] string userId) 
+        public async Task<IActionResult> GetFollowings([FromQuery] string userId) 
         {
-            return null;
+            var lst = await followService.GetUsersFollowings(userId);
+
+            return Ok(lst);
         }
 
         [HttpGet("get-mutual-followes")]
-        public Task<IActionResult> GetMutualFollowers([FromQuery] string userId)
+        public async Task<IActionResult> GetMutualFollowers([FromQuery] string targetUserId)
         {
-            return null;
+            List<FollowDto> followDtos = await followService.GetMutualFollower(userId, targetUserId);
+
+            return Ok(followDtos);
         }
 
         [HttpPost("follow")]
-        public Task<IActionResult> FollowUser([FromQuery] string userId)
+        public async Task<IActionResult> FollowUser([FromQuery] string targetUserId)
         {
-            return null;
+            await followService.FollowUser(userId, targetUserId);
+
+            return NoContent();
         }
 
         [HttpDelete("unfollow")]
-        public Task<IActionResult> UnfollowUser([FromQuery] string userId)
+        public async Task<IActionResult> UnfollowUser([FromQuery] string targetUserId)
         {
-            return null;
+            await followService.UnfollowUser(userId, targetUserId);
+
+            return NoContent();
         }
 
        
