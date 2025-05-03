@@ -7,5 +7,7 @@ namespace Twitter.Controllers
     [ApiController]
     public class NotificationController : ControllerBase
     {
+        // ربنا يسهل 
+        // signalR 
     }
 }

@@ -1,29 +1,45 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.DTOs.ProfileDtos;
+using Twitter.Services.ProfileService_dir;
 
 namespace Twitter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProfileController : ControllerBase
+    public class ProfileController : BasePlusUserController
     {
-        [HttpGet("get-by-id/{id:int}")]
-        public Task<IActionResult> GetById(int id) 
+        private readonly IProfileService profileService;
+
+        public ProfileController(IProfileService profileService)
         {
-            return null;
+            this.profileService = profileService;
+        }
+
+
+        [HttpGet("get-by-id/{id:int}")]
+        public async Task<IActionResult> GetById(int id) 
+        {
+            ProfileDto prof = await profileService.GetById(id);
+            return Ok(prof);
         }
 
         [HttpGet("get-my-profile")]
-        public Task<IActionResult> GetMyProfile() 
+        public async Task<IActionResult> GetMyProfile() 
         {
-            return null;
+            ProfileDto prof = await profileService.GetByUserId(userId);
+            return Ok(prof);
         }
 
-        [HttpPut("update-my-profile")]
-        public Task<IActionResult> UpdateMyProfile(UpdateProfileDto updateProfileDto)
+        [HttpPut("update-my-profile/{id:int}")]
+        public async Task<IActionResult> UpdateMyProfile([FromRoute] int id, UpdateProfileDto updateProfileDto)
         {
-            return null;
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            ProfileDto profileDto = await profileService.UpdateProfile(id, updateProfileDto);
+
+            return NoContent();
         }
 
     }

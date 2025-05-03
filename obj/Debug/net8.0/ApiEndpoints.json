@@ -100,6 +100,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Twitter.Controllers.BlockController",
+    "Method": "BlockUser",
+    "RelativePath": "api/Block/block",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "blockedId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Twitter.Controllers.BlockController",
+    "Method": "UnblockUser",
+    "RelativePath": "api/Block/unblock",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "blockedId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Twitter.Controllers.BookmarkController",
+    "Method": "AddBookmark",
+    "RelativePath": "api/Bookmark/add-to-bookmarks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Twitter.Controllers.BookmarkController",
     "Method": "DeleteBookmark",
     "RelativePath": "api/Bookmark/delete",
@@ -126,22 +174,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Twitter.Controllers.BookmarkController",
-    "Method": "GetById",
-    "RelativePath": "api/Bookmark/get-by-id/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "AddComment",
     "RelativePath": "api/Comment/add",
@@ -149,6 +181,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "comment",
         "Type": "Twitter.DTOs.CommentDtos.CreateUpdateCommentDto",
@@ -251,7 +288,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
+        "Name": "targetUserId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -299,7 +336,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
+        "Name": "targetUserId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -315,7 +352,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
+        "Name": "targetUserId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -488,11 +525,16 @@
   {
     "ContainingType": "Twitter.Controllers.ProfileController",
     "Method": "UpdateMyProfile",
-    "RelativePath": "api/Profile/update-my-profile",
+    "RelativePath": "api/Profile/update-my-profile/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "Name",
         "Type": "System.String",
