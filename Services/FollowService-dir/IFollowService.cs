@@ -13,5 +13,7 @@ namespace Twitter.Services.FollowService_dir
         Task<List<FollowDto>> GetUsersFollowings(string userId);
 
         Task<List<FollowDto>> GetUsersFollowers(string userId);
+
+        Task<List<FollowDto>> GetMutualFollower(string myId, string userId);
     }
 }

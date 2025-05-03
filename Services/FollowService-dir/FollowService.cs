@@ -16,6 +16,11 @@ namespace Twitter.Services.FollowService_dir
         }
         public async Task FollowUser(string followerId, string followedId)
         {
+            var user = await unitOfWork.UserRepo.GetAsync(x => x.Id == followedId);
+
+            if (user == null)
+                throw new NotFoundException("No such user exists");
+
             Follow follow = new();
 
             follow.FollowerUserId = followerId;
@@ -70,6 +75,19 @@ namespace Twitter.Services.FollowService_dir
             var lstDtos = followingLst.Select(f => f.toDto()).ToList();
 
             return lstDtos;
+        }
+
+        public async Task<List<FollowDto>> GetMutualFollower(string myId, string userId)
+        {
+            var lst1 = await unitOfWork.FollowRepo.GetUserFollowings(myId); // MyFollowings
+            var lst2 = await unitOfWork.FollowRepo.GetUserFollowers(userId); //HisFollowers
+
+            if(lst1 == null || lst2 == null)
+                return new List<FollowDto>();
+
+            var res = lst1.Intersect(lst2);                                 // Their intersection
+
+            return res.Select(e => e.toDto()).ToList();
         }
 
 
