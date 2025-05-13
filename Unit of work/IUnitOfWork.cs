@@ -6,6 +6,7 @@ using Twitter.Repository.BookmarkRepo;
 using Twitter.Repository.CommentRepo;
 using Twitter.Repository.FollowRepo;
 using Twitter.Repository.LikeRepo;
+using Twitter.Repository.NotificationRepo;
 using Twitter.Repository.PostRepo;
 using Twitter.Repository.ProfileRepo;
 using Twitter.Repository.RefreshTokensRepo;
@@ -33,6 +34,8 @@ namespace Twitter.Unit_of_work
         IUserRepo UserRepo { get; }
 
         IBlockRepo BlockRepo { get; }
+
+        INotificationRepo NotificationRepo { get; }
 
 
         Task<int> CompleteAsync();

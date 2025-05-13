@@ -7,6 +7,7 @@ using Twitter.Repository.BookmarkRepo;
 using Twitter.Repository.CommentRepo;
 using Twitter.Repository.FollowRepo;
 using Twitter.Repository.LikeRepo;
+using Twitter.Repository.NotificationRepo;
 using Twitter.Repository.PostRepo;
 using Twitter.Repository.ProfileRepo;
 using Twitter.Repository.RefreshTokensRepo;
@@ -34,6 +35,8 @@ namespace Twitter.Unit_of_work
         public IUserRepo UserRepo { get; private set; }
 
         public IBlockRepo BlockRepo { get; private set; }
+
+        public INotificationRepo NotificationRepo { get; private set; }
 
         public UnitOfWork(AppDbContext context) {
 
