@@ -19,6 +19,8 @@ namespace Twitter.Model
 
         public List<Follow> follows { get; set; } = new ();
 
+        public List<Notification> notification { get; set; } = new();
+
         public List<Bookmark> bookmarks { get; set; } = new();
 
         public Profile profile { get; set; } = new();
