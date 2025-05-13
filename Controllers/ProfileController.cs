@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.DTOs.ProfileDtos;
 using Twitter.Services.ProfileService_dir;
 
 namespace Twitter.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class ProfileController : BasePlusUserController
     {
         private readonly IProfileService profileService;

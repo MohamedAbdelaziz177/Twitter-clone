@@ -6,7 +6,7 @@ using Twitter.Unit_of_work;
 
 namespace Twitter.Services.BookmarkService_dir
 {
-    public class BookmarkService
+    public class BookmarkService : IBookmarkService
     {
         private readonly IUnitOfWork unitOfWork;
 

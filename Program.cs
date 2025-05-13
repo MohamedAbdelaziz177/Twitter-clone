@@ -1,14 +1,29 @@
 
+using Asp.Versioning;
+using FluentValidation;
 using FluentValidation.AspNetCore;
+//using MailKit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Twitter.Data;
+using Twitter.DTOs.Notification;
 using Twitter.Exceptions;
 using Twitter.Model;
+using Twitter.Services.AuthService_dir;
+using Twitter.Services.BlockService_dir;
+using Twitter.Services.BookmarkService_dir;
+using Twitter.Services.CommentService_dir;
+using Twitter.Services.ImgService_dir;
+using Twitter.Services.MailService_dir;
+using Twitter.Services.NotificationService;
+using Twitter.Services.PostService_dir;
+using Twitter.Services.ProfileService_dir;
+using Twitter.Unit_of_work;
 using Twitter.Validators;
+using Twitter.Services.MailService_dir;
 namespace Twitter
 {
     public class Program
@@ -25,7 +40,27 @@ namespace Twitter
             {
                 fv.RegisterValidatorsFromAssemblyContaining<PostDtoValidator>();
             });
-                
+
+            builder.Services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true;
+               
+            });
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IBlockService, BlockService>();
+            builder.Services.AddScoped<IBookmarkService, BookmarkService>();
+            builder.Services.AddScoped<ICommentService, CommentService>();
+            builder.Services.AddScoped<IMailService, MailService>();
+            builder.Services.AddScoped<INotificationService, NotificationService>();
+            builder.Services.AddScoped<IImgService, ImgService>();
+            builder.Services.AddScoped<IPostService, PostService>();
+            builder.Services.AddScoped<IProfileService, ProfileService>();
+            //builder.Services.AddSingleton<IValidator<NotificationDto>, NotificationValidator>();
+
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -38,7 +73,16 @@ namespace Twitter
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-           
+           //
+           //
+           //
+           //
+           //
+           //
+           //
+           //
+           //
+           //
 
 
             builder.Services.AddAuthentication(options =>

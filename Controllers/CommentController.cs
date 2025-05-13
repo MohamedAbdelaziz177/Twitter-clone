@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.DTOs.CommentDtos;
@@ -7,9 +8,10 @@ using Twitter.Services.CommentService_dir;
 
 namespace Twitter.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize]
+    [ApiVersion("1.0")]
     public class CommentController : BasePlusUserController
     {
         private readonly ICommentService commentService;

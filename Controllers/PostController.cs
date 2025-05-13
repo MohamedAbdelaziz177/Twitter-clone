@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -11,9 +12,10 @@ using Twitter.Services.ProfileService_dir;
 namespace Twitter.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize]
+    [ApiVersion("1.0")]
     public class PostController : BasePlusUserController
     {
         private readonly IPostService postService;

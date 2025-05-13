@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Twitter.Data;
 
@@ -11,9 +12,11 @@ using Twitter.Data;
 namespace Twitter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513112819_AddingUserIdToNotification")]
+    partial class AddingUserIdToNotification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -386,12 +389,6 @@ namespace Twitter.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FollowId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LikeId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("PostId")
                         .HasColumnType("int");
 
@@ -405,10 +402,6 @@ namespace Twitter.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CommentId");
-
-                    b.HasIndex("FollowId");
-
-                    b.HasIndex("LikeId");
 
                     b.HasIndex("PostId");
 
@@ -676,14 +669,6 @@ namespace Twitter.Migrations
                         .WithMany()
                         .HasForeignKey("CommentId");
 
-                    b.HasOne("Twitter.Model.Follow", "Follow")
-                        .WithMany()
-                        .HasForeignKey("FollowId");
-
-                    b.HasOne("Twitter.Model.Like", "Like")
-                        .WithMany()
-                        .HasForeignKey("LikeId");
-
                     b.HasOne("Twitter.Model.Post", "Post")
                         .WithMany()
                         .HasForeignKey("PostId");
@@ -695,10 +680,6 @@ namespace Twitter.Migrations
                         .IsRequired();
 
                     b.Navigation("Comment");
-
-                    b.Navigation("Follow");
-
-                    b.Navigation("Like");
 
                     b.Navigation("Post");
 

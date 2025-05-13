@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.DTOs.FollowDtos;
@@ -6,9 +7,10 @@ using Twitter.Services.FollowService_dir;
 
 namespace Twitter.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize]
+    [ApiVersion("1.0")]
     public class FollowController : BasePlusUserController
     {
         private readonly IFollowService followService;

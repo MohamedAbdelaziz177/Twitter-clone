@@ -156,3 +156,6 @@ F:\Twitter\obj\Debug\net8.0\Twitter.sourcelink.json
 F:\Twitter\bin\Debug\net8.0\FluentValidation.dll
 F:\Twitter\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 F:\Twitter\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+F:\Twitter\bin\Debug\net8.0\Asp.Versioning.Abstractions.dll
+F:\Twitter\bin\Debug\net8.0\Asp.Versioning.Http.dll
+F:\Twitter\bin\Debug\net8.0\Asp.Versioning.Mvc.dll

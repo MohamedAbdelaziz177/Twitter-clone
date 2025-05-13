@@ -2,7 +2,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "ConfirmEmail",
-    "RelativePath": "api/Auth/ConfirmEmail",
+    "RelativePath": "api/v1/Auth/ConfirmEmail",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "ForgetPassword",
-    "RelativePath": "api/Auth/ForgetPassword",
+    "RelativePath": "api/v1/Auth/ForgetPassword",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/Login",
+    "RelativePath": "api/v1/Auth/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -50,7 +50,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "RefreshToken",
-    "RelativePath": "api/Auth/RefreshToken",
+    "RelativePath": "api/v1/Auth/RefreshToken",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -60,7 +60,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/Register",
+    "RelativePath": "api/v1/Auth/Register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -76,7 +76,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "RequestEmailConfirmation",
-    "RelativePath": "api/Auth/RequestEmailConfirmation",
+    "RelativePath": "api/v1/Auth/RequestEmailConfirmation",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -86,7 +86,7 @@
   {
     "ContainingType": "Twitter.Controllers.AuthController",
     "Method": "ResetPassword",
-    "RelativePath": "api/Auth/ResetPassword",
+    "RelativePath": "api/v1/Auth/ResetPassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -102,7 +102,7 @@
   {
     "ContainingType": "Twitter.Controllers.BlockController",
     "Method": "BlockUser",
-    "RelativePath": "api/Block/block",
+    "RelativePath": "api/v1/Block/block",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -118,7 +118,7 @@
   {
     "ContainingType": "Twitter.Controllers.BlockController",
     "Method": "UnblockUser",
-    "RelativePath": "api/Block/unblock",
+    "RelativePath": "api/v1/Block/unblock",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -134,7 +134,7 @@
   {
     "ContainingType": "Twitter.Controllers.BookmarkController",
     "Method": "AddBookmark",
-    "RelativePath": "api/Bookmark/add-to-bookmarks",
+    "RelativePath": "api/v1/Bookmark/add-to-bookmarks",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -150,7 +150,7 @@
   {
     "ContainingType": "Twitter.Controllers.BookmarkController",
     "Method": "DeleteBookmark",
-    "RelativePath": "api/Bookmark/delete",
+    "RelativePath": "api/v1/Bookmark/delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -166,7 +166,7 @@
   {
     "ContainingType": "Twitter.Controllers.BookmarkController",
     "Method": "GetAll",
-    "RelativePath": "api/Bookmark/get-all",
+    "RelativePath": "api/v1/Bookmark/get-all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -176,7 +176,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "AddComment",
-    "RelativePath": "api/Comment/add",
+    "RelativePath": "api/v1/Comment/add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -197,7 +197,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "DeleteComment",
-    "RelativePath": "api/Comment/delete/{id}",
+    "RelativePath": "api/v1/Comment/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -213,7 +213,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "GetById",
-    "RelativePath": "api/Comment/get-by-id/{id}",
+    "RelativePath": "api/v1/Comment/get-by-id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -229,7 +229,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "GetByPostId",
-    "RelativePath": "api/Comment/get-by-postId",
+    "RelativePath": "api/v1/Comment/get-by-postId",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -245,7 +245,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "GetByUserId",
-    "RelativePath": "api/Comment/get-by-userId",
+    "RelativePath": "api/v1/Comment/get-by-userId",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -261,7 +261,7 @@
   {
     "ContainingType": "Twitter.Controllers.CommentController",
     "Method": "EditComment",
-    "RelativePath": "api/Comment/update/{id}",
+    "RelativePath": "api/v1/Comment/update/{id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -282,7 +282,7 @@
   {
     "ContainingType": "Twitter.Controllers.FollowController",
     "Method": "FollowUser",
-    "RelativePath": "api/Follow/follow",
+    "RelativePath": "api/v1/Follow/follow",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -298,7 +298,7 @@
   {
     "ContainingType": "Twitter.Controllers.FollowController",
     "Method": "GetFollowers",
-    "RelativePath": "api/Follow/get-followers",
+    "RelativePath": "api/v1/Follow/get-followers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -314,7 +314,7 @@
   {
     "ContainingType": "Twitter.Controllers.FollowController",
     "Method": "GetFollowings",
-    "RelativePath": "api/Follow/get-followings",
+    "RelativePath": "api/v1/Follow/get-followings",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -330,7 +330,7 @@
   {
     "ContainingType": "Twitter.Controllers.FollowController",
     "Method": "GetMutualFollowers",
-    "RelativePath": "api/Follow/get-mutual-followes",
+    "RelativePath": "api/v1/Follow/get-mutual-followes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -346,7 +346,7 @@
   {
     "ContainingType": "Twitter.Controllers.FollowController",
     "Method": "UnfollowUser",
-    "RelativePath": "api/Follow/unfollow",
+    "RelativePath": "api/v1/Follow/unfollow",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -360,9 +360,35 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Twitter.Controllers.NotificationController",
+    "Method": "DeleteNotificationById",
+    "RelativePath": "api/v1/Notification/delete-notification/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Twitter.Controllers.NotificationController",
+    "Method": "GetMyNotfications",
+    "RelativePath": "api/v1/Notification/get-my-notifications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "AddPost",
-    "RelativePath": "api/Post/add",
+    "RelativePath": "api/v1/Post/add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -383,7 +409,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "BookmarkPost",
-    "RelativePath": "api/Post/bookmark",
+    "RelativePath": "api/v1/Post/bookmark",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -399,7 +425,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "DeletePost",
-    "RelativePath": "api/Post/delete/{id}",
+    "RelativePath": "api/v1/Post/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -415,7 +441,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "GetPostById",
-    "RelativePath": "api/Post/get-by-id/{id}",
+    "RelativePath": "api/v1/Post/get-by-id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -431,7 +457,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "GetMyPosts",
-    "RelativePath": "api/Post/get-my-posts",
+    "RelativePath": "api/v1/Post/get-my-posts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -441,7 +467,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "LikePost",
-    "RelativePath": "api/Post/like",
+    "RelativePath": "api/v1/Post/like",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -457,7 +483,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "UnlikePost",
-    "RelativePath": "api/Post/unlike",
+    "RelativePath": "api/v1/Post/unlike",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -473,7 +499,7 @@
   {
     "ContainingType": "Twitter.Controllers.PostController",
     "Method": "UpdatePost",
-    "RelativePath": "api/Post/update/{id}",
+    "RelativePath": "api/v1/Post/update/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -499,7 +525,7 @@
   {
     "ContainingType": "Twitter.Controllers.ProfileController",
     "Method": "GetById",
-    "RelativePath": "api/Profile/get-by-id/{id}",
+    "RelativePath": "api/v1/Profile/get-by-id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -515,7 +541,7 @@
   {
     "ContainingType": "Twitter.Controllers.ProfileController",
     "Method": "GetMyProfile",
-    "RelativePath": "api/Profile/get-my-profile",
+    "RelativePath": "api/v1/Profile/get-my-profile",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -525,7 +551,7 @@
   {
     "ContainingType": "Twitter.Controllers.ProfileController",
     "Method": "UpdateMyProfile",
-    "RelativePath": "api/Profile/update-my-profile/{id}",
+    "RelativePath": "api/v1/Profile/update-my-profile/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

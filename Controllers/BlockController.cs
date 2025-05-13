@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Twitter.Services.BlockService_dir;
 
 namespace Twitter.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize]
+    [ApiVersion("1.0")]
     public class BlockController : BasePlusUserController
     {
         private readonly IBlockService blockService;

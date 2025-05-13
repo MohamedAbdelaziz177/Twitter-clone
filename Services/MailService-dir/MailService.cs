@@ -32,7 +32,7 @@ namespace Twitter.Services.MailService_dir
             msg.From.Add(new MailboxAddress(from,from));
             msg.Subject = Subject;
             msg.Body = new TextPart(TextFormat.Html) { Text = Body };
-
+              
 
             using (var smtpClient = new SmtpClient())
             {
