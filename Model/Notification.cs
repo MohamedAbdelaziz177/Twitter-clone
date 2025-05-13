@@ -21,6 +21,20 @@ namespace Twitter.Model
 
         public Comment? Comment { get; set; }
 
+        [ForeignKey(nameof(Like))]
+        public int? LikeId { get; set; }
+
+        public Like? Like { get; set; }
+
+        [ForeignKey(nameof(Follow))]
+        public int? FollowId { get; set; }
+
+        public Follow? Follow { get; set; }
+
+        [ForeignKey(nameof(User))]
+        public string UserId { get; set; } = string.Empty;
+        public ApplicationUser User { get; set; } = new();
+
 
     }
 }
